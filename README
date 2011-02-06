@@ -1,0 +1,48 @@
+-----------------------------------------------------
+Building
+-----------------------------------------------------
+
+Inside 'sudoku' directory:
+cmake .
+make
+
+-----------------------------------------------------
+Running
+-----------------------------------------------------
+
+From the 'sudoku' directory:
+./build/bin/sudoku <filepath>
+
+Example
+./build/bin/sudoku files/file.txt
+
+Displays the initial board followed by the solution and computation time.
+
+-----------------------------------------------------
+File format
+-----------------------------------------------------
+
+The file format is currently pretty cryptic, but straightforward.  Each file
+includes each 3x3 patch, from left to right, top to bottom (i.e. reading 
+order) as shown below.
+
+Patch order:
+[1] [2] [3]
+[4] [5] [6]
+[7] [8] [9]
+
+Each patch is a set of 9 numbers such as:
+3 -1 -1
+-1 9 6
+-1 -1 7
+
+Values of -1 represent blank squares while all other numbers are the values
+located in those squares.  If you search and replace all -1 values with a '*'
+character, the format becomes easier to read (although the 'sudoku' program
+won't be able to read it)
+3 * *
+* 9 6
+* * 7
+
+If the format is confusing, compare the values in the file to the pretty print
+version of the board printed by the 'sudoku' program.
